@@ -1,19 +1,30 @@
-from mosaico import widget, config
+from mosaico import widget
 
-# Create title
-text = widget.createText()
-text.setText(config["name"])
-text.setHexColor(config["color"])
-text.translate(2,2)
-text.setFontHeight(10)
+# Vacuum
+vacuum = widget.createImage()
+vacuum.setImage(widget.widgetAsset("vacuum.ppm"))
+vacuum.moveTo(70, 30)
+# vacuum.flipHorizontally()
+vacuum.animateTo(-40, 30, 4000)
 
-# Create items
-items = []
-for i in range(0, len(config["items"])):
-    items.append(widget.createText())
-    items[i].setFontHeight(6)
-    items[i].setText(config["items"][i])
-    items[i].translate(2, 6+ 7 * (i + 1))
+# Name
+name = widget.createText()
+name.setText("Monoa")
+name.setFont("10x20")
+name.moveTo(3, 7)
+
+# Called once each frame
+flipped = False
 
 def loop():
-    pass
+    global flipped
+    if vacuum.isAnimating():
+        return
+    elif flipped:
+        flipped = False
+        vacuum.flipHorizontally()
+        vacuum.animateTo(-40, 30, 4000)
+    else:
+        flipped = True
+        vacuum.flipHorizontally()
+        vacuum.animateTo(80, 30, 4000)
