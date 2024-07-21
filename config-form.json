@@ -1,9 +1,15 @@
 {
-"form": {
-"title": "Widget Configuration",
-"description": "Configure your widget here",
-  "fields": [
-  ]
+    "form": {
+        "title": "Widget Configuration",
+        "description": "Configure your widget here",
+        "fields": [
+            {
+                "roommates": {
+                    "type": "string[]",
+                    "placeholder": "Enter the name of a roomate",
+                    "required": true
+                }
+            }
+        ]
+    }
 }
-}
-        

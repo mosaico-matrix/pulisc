@@ -5,6 +5,6 @@
   "software_version": "1.0",
   "author": "murkrow",
   "fps": 25,
-  "configurable": false
+  "configurable": true
 }
         
